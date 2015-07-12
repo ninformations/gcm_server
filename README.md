@@ -15,9 +15,13 @@ by Google on the [XMPP documentation page](http://developer.android.com/google/g
 
 
 ##Most important classes
-All classes are within the `com.grokkingandroid.sampleapp.samples.gcm.ccs.server` package.
+All classes are within the `com.grokkingandroid.sampleapp.samples.gcm.ccs.server` package except main method.
 
-`CcsClient` contains a main method which takes three arguments:
+You can run this using mvn command:
+
+mvn clean compile exec:java -Dexec.mainClass="com.grokkingandroid.sampleapp.App"
+
+`com.grokkingandroid.sampleapp.App` contains a main method which takes three arguments:
 
 1. The project number
 2. The API key
