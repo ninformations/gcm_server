@@ -19,7 +19,7 @@ All classes are within the `com.grokkingandroid.sampleapp.samples.gcm.ccs.server
 
 You can run this using mvn command:
 
-`mvn clean compile exec:java -Dexec.mainClass="com.grokkingandroid.sampleapp.App"`
+`mvn clean compile exec:java -Dexec.mainClass="com.grokkingandroid.sampleapp.App" -Dexec.args="<projectId> <password> <toRegId>"`
 
 `com.grokkingandroid.sampleapp.App` contains a main method which takes three arguments:
 
