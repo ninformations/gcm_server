@@ -56,8 +56,7 @@ See for example the note at the top of the [http://developer.android.com/google/
 You can find a current link there as well.
 
 
-##Relevant Blogposts on [Grokking Android](http://www.grokkingandroid.com/)
-Right now I haven't finished the blog post about GCM. It's in the making and should be up pretty soon.
+##Relevant Blogposts on [Grokking Android](http://www.grokkingandroid.com/upstream_messages_with_google_cloud_messaging/)
 
 
 ##Developed by
