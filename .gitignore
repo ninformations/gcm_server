@@ -37,6 +37,7 @@ pom.xml.*
 build.xml
 ant.properties
 local.properties
+application.properties
 proguard.cfg
 proguard-project.txt
 

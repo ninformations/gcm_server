@@ -33,6 +33,7 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import org.xmlpull.v1.XmlPullParser;
 
+import javax.net.ssl.SSLSocketFactory;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -40,9 +41,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.net.ssl.SSLSocketFactory;
-import javax.security.sasl.SaslException;
 
 /**
  * Sample Smack implementation of a client for GCM Cloud Connection Server. 
@@ -56,6 +54,7 @@ import javax.security.sasl.SaslException;
  * as well as with sending messages to a list of recipients. The original code
  * only covers sending one message to exactly one recipient.
  */
+@SuppressWarnings("unchecked")
 public class CcsClient {
 
     public static final Logger logger = Logger.getLogger(CcsClient.class.getName());
@@ -163,8 +162,7 @@ public class CcsClient {
                     public PacketExtension parseExtension(XmlPullParser parser)
                             throws Exception {
                         String json = parser.nextText();
-                        GcmPacketExtension packet = new GcmPacketExtension(json);
-                        return packet;
+                        return new GcmPacketExtension(json);
                     }
                 });
     }
@@ -234,9 +232,7 @@ public class CcsClient {
         @SuppressWarnings("unchecked")
         Map<String, String> payload = (Map<String, String>) jsonObject.get("data");
 
-        CcsMessage msg = new CcsMessage(from, category, messageId, payload);
-
-        return msg;
+        return new CcsMessage(from, category, messageId, payload);
     }
     
     /**
@@ -361,6 +357,7 @@ public class CcsClient {
 
         // -Dsmack.debugEnabled=true
         SmackConfiguration.DEBUG_ENABLED = true;
+//        SASLAuthentication.supportSASLMechanism("PLAIN", 0);
 
         connection = new XMPPTCPConnection(config);
         connection.connect();
